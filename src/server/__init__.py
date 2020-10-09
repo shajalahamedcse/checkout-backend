@@ -20,5 +20,7 @@ app.config.from_object(app_settings)
 db = SQLAlchemy(app)
 
 from src.server.home.views import home_blueprint
+from src.server.products.views import product_blueprint
 
 app.register_blueprint(home_blueprint)
+app.register_blueprint(product_blueprint)
