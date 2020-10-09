@@ -8,7 +8,25 @@ product_blueprint = Blueprint('products', __name__)
 
 class GetProductListAPI(MethodView):
     def get(self):
-        pass
+        products = Product.query.order_by(Product.product_id).all()
+        product_list = []
+        if not products:
+            response_object = {
+                'status': 'fail',
+                'message': 'Sorry. No products are available right now.'
+            }
+            return make_response(jsonify(response_object)), 200
+        for product in products:
+            product_list.append({
+                'id': product.product_id,
+                'name': product.product_name,
+                'price': str(product.price)
+            })
+        response_object = {
+            'status': 'success',
+            'data': product_list
+        }
+        return make_response(jsonify(response_object)), 200
 
 
 class AddProductAPI(MethodView):
@@ -59,6 +77,7 @@ class AddProductAPI(MethodView):
 
 
 add_product_view = AddProductAPI.as_view('add_product_api')
+get_product_view = GetProductListAPI.as_view('get_product_list_api')
 
 product_blueprint.add_url_rule(
     '/api/v1/products/add',
@@ -66,3 +85,8 @@ product_blueprint.add_url_rule(
     methods=['POST']
 )
 
+product_blueprint.add_url_rule(
+    '/api/v1/products/getall',
+    view_func=get_product_view,
+    methods=['GET']
+)
