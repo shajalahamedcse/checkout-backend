@@ -21,6 +21,8 @@ db = SQLAlchemy(app)
 
 from src.server.home.views import home_blueprint
 from src.server.products.views import product_blueprint
+from src.server.promo.views import promo_blueprint
 
 app.register_blueprint(home_blueprint)
 app.register_blueprint(product_blueprint)
+app.register_blueprint(promo_blueprint)

@@ -1,7 +1,8 @@
 from flask import Blueprint, request, make_response, jsonify
 from flask.views import MethodView
 from src.server import db, app
-from src.server.models import Product
+from src.server.models.product import Product
+
 
 product_blueprint = Blueprint('products', __name__)
 
@@ -69,6 +70,7 @@ class AddProductAPI(MethodView):
             return make_response(jsonify(response_object)), 201
         except Exception as e:
             app.logger.debug(e)
+            db.session.rollback()
             response_object = {
                 'status': 'fail',
                 'message': 'Sorry. The action has failed because of duplicate entry. Please try again.'
