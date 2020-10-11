@@ -19,7 +19,8 @@ class GetProductListAPI(MethodView):
             return make_response(jsonify(response_object)), 200
         for product in products:
             product_list.append({
-                'id': product.product_id,
+                'id': product.id,
+                'product_id': product.product_id,
                 'name': product.product_name,
                 'price': str(product.price)
             })
