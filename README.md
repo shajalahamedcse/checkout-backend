@@ -1,7 +1,24 @@
 
+## How To Run The Backend
+
+    $ git clone https://github.com/shajalahamedcse/checkout-backend.git
+
+    $ echo "Creating tables..."
+    $ python manage.py create_db
+
+    $ echo "Initializing tables..."
+    $ python manage.py db init
+
+    $ echo "Apply database migrations..."
+    $ python manage.py db migrate
+
+    $ echo "Running the server..."
+    $ python manage.py runserver
+
 
 ### API LIST
 
+    POST - /api/v1/products/add
     GET  - /api/v1/products/getall 
     POST - /api/v1/promo-details
     POST - /api/v1/apply-promo
@@ -9,22 +26,12 @@
     
     
     
- #!/bin/bash
 
-echo "Creating tables..."
-python manage.py create_db
+## Add Product Using Postman:
 
-echo "Initializing tables..."
-python manage.py db init
+    POST - /api/v1/products/add
 
-echo "Apply database migrations..."
-python manage.py db migrate
-
-echo "Running the server..."
-python manage.py runserver
-
-
-## product :
+    http://localhost:8000/api/v1/products/add
 
     {
         "product_id": "wf",
@@ -97,7 +104,12 @@ python manage.py runserver
    * quantity - Least amount (Can be quantity )
    * least_amount - Minimum amount(dollar) to avail flat discount
    
+
 ### Apply Promo
+
+    http://localhost:8000/api/v1/apply-promo
+
+    $ POST - /api/v1/apply-promo
 
 #### Flat Promo
 
@@ -172,7 +184,6 @@ python manage.py runserver
     }
     
    Answer: subtotal
-   
    
    
    
