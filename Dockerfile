@@ -21,4 +21,3 @@ ENV POSTGRES_USER_PASS postgres
 EXPOSE 8000
 
 CMD ["python", "manage.py", "runserver"]
-# CMD ["bash", "entrypoint.sh"]

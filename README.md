@@ -3,6 +3,12 @@
 
     $ git clone https://github.com/shajalahamedcse/checkout-backend.git
 
+
+## Install Postgres And Create Database:
+
+    * create database named 'checkout'
+
+
     $ echo "Creating tables..."
     $ python manage.py create_db
 
