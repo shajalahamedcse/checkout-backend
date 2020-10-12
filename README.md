@@ -22,6 +22,15 @@
     $ python manage.py runserver
 
 
+## Using Docker-Compose:
+
+    $ sudo docker-compose up 
+    $ sudo docker-compose run pay-checkout-backend python manage.py create_db
+    $ sudo docker-compose run pay-checkout-backend python manage.py db init
+    $ sudo docker-compose run pay-checkout-backend python manage.py db migrate
+
+
+
 ### API LIST
 
     POST - /api/v1/products/add
