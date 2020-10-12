@@ -35,7 +35,6 @@
 
     POST - /api/v1/products/add
     GET  - /api/v1/products/getall 
-    POST - /api/v1/promo-details
     POST - /api/v1/apply-promo
     POST - /api/v1/add-promo
     
